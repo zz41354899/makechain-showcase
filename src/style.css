@@ -1,0 +1,229 @@
+:root {
+  --brand: #16a34a;
+  --brand-hover: #15803d;
+  --brand-light: #dcfce7;
+  --text: #222;
+  --text-muted: #666;
+  --border: #e5e5e5;
+  --bg: #fafafa;
+}
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, "Noto Sans TC", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  padding: 0 20px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 10;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.logo-dot {
+  width: 10px;
+  height: 10px;
+  background: var(--brand);
+  border-radius: 50%;
+}
+.muted {
+  color: #7a7a7a;
+  font-weight: 500;
+}
+@media (max-width: 640px) {
+  .header {
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+  }
+}
+
+/* Footer */
+.footer {
+  margin-top: 64px;
+  padding: 32px 24px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  background: var(--bg);
+}
+@media (max-width: 640px) {
+  .footer {
+    padding: 24px 16px;
+    font-size: 13px;
+  }
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 1536px;
+  margin: 24px auto;
+  padding: 0 24px;
+}
+@media (max-width: 640px) {
+  .container {
+    padding: 0 16px;
+  }
+}
+.main {
+  flex: 1;
+}
+
+/* Typography */
+.page-title {
+  font-size: 22px;
+  margin-bottom: 4px;
+}
+.project-count {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+.hint {
+  color: #666;
+  margin: 24px 0;
+}
+
+/* Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+}
+@media (min-width: 640px) {
+  .grid {
+    gap: 20px;
+  }
+}
+@media (min-width: 768px) {
+  .grid {
+    gap: 24px;
+  }
+}
+
+/* Card 元件應用此結構為基底 */
+.card {
+  grid-column: span 12;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.25s ease-in-out;
+}
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+}
+@media (min-width: 640px) {
+  .card {
+    grid-column: span 6;
+  }
+}
+@media (min-width: 1024px) {
+  .card {
+    grid-column: span 3;
+  }
+}
+
+/* Buttons */
+.btn {
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s ease-in-out;
+}
+.btn-primary {
+  background: var(--brand);
+  color: white;
+  border: none;
+}
+.btn-primary:hover {
+  background: var(--brand-hover);
+}
+.btn-ghost {
+  border: 1px solid var(--border);
+  background: var(--brand-light);
+  color: var(--brand);
+}
+.btn-ghost:hover {
+  background: var(--brand);
+  color: white;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  margin: 32px auto;
+  color: var(--text);
+  flex-wrap: wrap;
+}
+
+.pagination button {
+  background: var(--brand-light);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  font-weight: 600;
+}
+
+.pagination button:hover {
+  background: var(--brand);
+  color: #fff;
+}
+
+.pagination button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .pagination {
+    flex-direction: column;
+    gap: 8px;
+    font-size: 13px;
+  }
+
+  .pagination button {
+    width: 100%;
+  }
+}
